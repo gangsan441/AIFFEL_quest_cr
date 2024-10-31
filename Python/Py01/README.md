@@ -1,6 +1,6 @@
 AIFFEL Campus Online Code Peer Review Templete
 
-코더 : 강수안
+코더 : 강소안
 
 리뷰어 : 오병철 
 

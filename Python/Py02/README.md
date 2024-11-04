@@ -1,6 +1,6 @@
 # AIFFEL Campus Online Code Peer Review Templete
-- 코더 : 코더의 이름을 작성하세요.
-- 리뷰어 : 리뷰어의 이름을 작성하세요.
+- 코더 : 강소안
+- 리뷰어 : 김대환
 
 
 # PRT(Peer Review Template)
@@ -8,7 +8,7 @@
     - 문제에서 요구하는 최종 결과물이 첨부되었는지 확인
         - 중요! 해당 조건을 만족하는 부분을 캡쳐해 근거로 첨부
     
-- [ ]  **2. 전체 코드에서 가장 핵심적이거나 가장 복잡하고 이해하기 어려운 부분에 작성된 
+- [x]  **2. 전체 코드에서 가장 핵심적이거나 가장 복잡하고 이해하기 어려운 부분에 작성된 
 주석 또는 doc string을 보고 해당 코드가 잘 이해되었나요?**
     - 해당 코드 블럭을 왜 핵심적이라고 생각하는지 확인
     - 해당 코드 블럭에 doc string/annotation이 달려 있는지 확인
@@ -37,7 +37,28 @@
 
 # 회고(참고 링크 및 코드 개선)
 ```
-# 리뷰어의 회고를 작성합니다.
-# 코드 리뷰 시 참고한 링크가 있다면 링크와 간략한 설명을 첨부합니다.
-# 코드 리뷰를 통해 개선한 코드가 있다면 코드와 간략한 설명을 첨부합니다.
+# process_text() 함수 내에서 반복적인 print 문들이 있는데 
+  별도의 함수로 분리하면 좋을 것 같습니다.
+
+def process_text(text):
+    """텍스트 처리 로직만 담당"""
+    text = text.lower()
+    text = re.sub(r'[^\w\s]', '', text)
+    words = text.split()
+    return words, word_freq(words)
+
+def display_results(words, indexed_freq):
+    """결과 출력만 담당"""
+    print("단어 리스트:", words)
+    print("단어 빈도수 (정렬된 결과):")
+    for index, (word, count) in indexed_freq.items():
+        print(f"{index}: {word} - {count}")
+
+def process_user_input():
+    """사용자 입력 처리"""
+    text = input("단어를 입력하세요: \n")
+    words, freq = process_text(text)
+    display_results(words, freq)
+
+# 이렇게 텍스트 처리 로직만 분리하면 좋을 것 같아요
 ```

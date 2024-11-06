@@ -96,6 +96,3 @@ AIFFEL_quest_cr
         └── README.md
 ```
 
-![image](https://github.com/user-attachments/assets/a3ca2bbe-654f-4f80-80a2-018cc974df81)
-
-
